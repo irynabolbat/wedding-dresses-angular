@@ -1,0 +1,28 @@
+<h1 class="container">Dresses</h1>
+
+<div *ngIf="visibleDresses.length === 0">NO dresses</div>
+
+<ul class="dress__list">
+  <li *ngFor="let dress of visibleDresses">
+    <div class="dress__wrapper">
+      <img
+        [src]="dress.image_url_1"
+        alt="{{ dress.title }}"
+        class="dress__image"
+      />
+      <h3 class="dress__title">{{ dress.title }}</h3>
+      <p class="dress__price">Price: € {{ dress.price }}.00 EUR</p>
+      <button class="buy__button">Buy</button>
+    </div>
+  </li>
+</ul>
+
+<div class="pagination">
+  <button
+    *ngFor="let page of totalPages"
+    (click)="goToPage(page)"
+    [class.active]="page === currentPage"
+  >
+    {{ page }}
+  </button>
+</div>
