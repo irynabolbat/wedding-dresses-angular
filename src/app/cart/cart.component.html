@@ -12,7 +12,7 @@
       <img [src]="dress.image" alt="{{ dress.title }}" width="50" />
       <div class="dress__details">
         <div class="dress__title">{{ dress.title }}</div>
-        <div class="dress__price">{{ dress.price | currency }}</div>
+        <div class="dress__price">€ {{ dress.price }} EUR</div>
       </div>
       <div class="actions">
         <button (click)="decreaseQuantity(dress)">-</button>
@@ -23,7 +23,7 @@
         Remove
       </button>
     </div>
-    <div class="totaPrice">Total Price: {{ getTotalPrice() | currency }}</div>
+    <div class="totaPrice">Total Price: € {{ getTotalPrice() }} EUR</div>
     <button class="submitOrder" (click)="submitOrder()">Submit Order</button>
   </div>
 </div>
