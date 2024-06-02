@@ -51,16 +51,26 @@ export class DressesListComponent implements OnInit {
   }
 
   public addToCart(dress: DressInterface) {
-    this.cart.push({
-      id: dress.id,
-      title: dress.title,
-      image: dress.image_url_1,
-      price: dress.price,
-      quantity: 1,
-    });
+    const existingDressIndex = this.cart.findIndex(
+      (item) => item.id === dress.id
+    );
+
+    if (existingDressIndex !== -1) {
+      this.cart[existingDressIndex].quantity++;
+    } else {
+      this.cart.push({
+        id: dress.id,
+        title: dress.title,
+        image: dress.image_url_1,
+        price: dress.price,
+        quantity: 1,
+      });
+    }
+
     if (this.isBrowser()) {
       localStorage.setItem('cart', JSON.stringify(this.cart));
     }
+
     alert(`${dress.title} has been added to cart!`);
   }
 
