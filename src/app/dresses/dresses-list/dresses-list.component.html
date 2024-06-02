@@ -16,7 +16,7 @@
       />
       <h3 class="dress__title">{{ dress.title }}</h3>
       <p class="dress__price">Price: € {{ dress.price }}.00 EUR</p>
-      <button class="buy__button">Buy</button>
+      <button class="buy__button" (click)="addToCart(dress)">Buy</button>
     </div>
   </li>
 </ul>
