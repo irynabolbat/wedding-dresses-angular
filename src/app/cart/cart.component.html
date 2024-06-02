@@ -1,0 +1,23 @@
+<h1 class="pageTitle">Cart</h1>
+
+<h2><a [routerLink]="['/dresses-list']">Go to home page</a></h2>
+
+<div class="cart__container">
+  <div *ngIf="dressesInCart.length === 0">Your cart is empty.</div>
+  <div *ngIf="dressesInCart.length > 0">
+    <div class="dress__item" *ngFor="let dress of dressesInCart">
+      <img [src]="dress.image" alt="{{ dress.title }}" width="50" />
+      <div class="dress__details">
+        <div class="dress__title">{{ dress.title }}</div>
+        <div class="dress__price">{{ dress.price | currency }}</div>
+      </div>
+      <div class="actions">
+        <button (click)="decreaseQuantity(dress)">-</button>
+        <span class="quantity">{{ dress.quantity }}</span>
+        <button (click)="increaseQuantity(dress)">+</button>
+      </div>
+    </div>
+    <div class="totaPrice">Total Price: {{ getTotalPrice() | currency }}</div>
+    <button class="submitOrder" (click)="submitOrder()">Submit Order</button>
+  </div>
+</div>

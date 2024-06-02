@@ -1,6 +1,10 @@
 <h1 class="container">Dresses</h1>
 
-<div *ngIf="visibleDresses.length === 0">NO dresses</div>
+<h2 *ngIf="visibleDresses.length !== 0">
+  <a [routerLink]="['/cart']">Go to cart</a>
+</h2>
+
+<div *ngIf="visibleDresses.length === 0">No dresses</div>
 
 <ul class="dress__list">
   <li *ngFor="let dress of visibleDresses">
