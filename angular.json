@@ -101,7 +101,10 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://irynabolbat.github.io/wedding-dresses-angular/"
+          }
         }
       }
     }
