@@ -65,7 +65,7 @@ export class CartComponent implements OnInit {
   public removeFromCart(id: string) {
     const index = this.dressesInCart.findIndex((item) => item.id === id);
     if (index !== -1) {
-      const removedItem = this.dressesInCart.splice(index, 1)[0]; // Remove item and get removed item
+      const removedItem = this.dressesInCart.splice(index, 1)[0];
       this.updateCartInStorage();
       alert(`${removedItem.title} has been removed from the cart!`);
     }
